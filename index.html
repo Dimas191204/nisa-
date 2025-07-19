@@ -319,12 +319,13 @@
             box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         }
 
-        /* FIXED: Style untuk menampilkan foto yang sebenarnya */
+        /* PERBAIKAN: Style untuk foto tanpa caption */
         .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            border-radius: 22px; /* Sedikit lebih kecil dari frame untuk efek border */
         }
 
         .photo-placeholder {
@@ -339,20 +340,10 @@
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             flex-direction: column;
+            border-radius: 22px;
         }
 
-        .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 20px 15px 15px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
+        /* HAPUS: Semua style untuk photo-caption dihapus */
 
         .message-card {
             background: rgba(255,255,255,0.95);
@@ -488,10 +479,10 @@
     <div class="login-screen" id="loginScreen">
         <div class="login-container">
             <h1 class="login-title">✨ Special Access ✨</h1>
-            <p class="login-subtitle">Masukkan nama untuk membuka surprise istimewa</p>
+            <p class="login-subtitle">Masukkan nama kamu </p>
             <input type="text" class="login-input" id="nameInput" placeholder="Masukkan nama..." maxlength="20">
-            <button class="login-btn" onclick="checkAccess()">🎁 Buka Surprise</button>
-            <div class="error-message" id="errorMessage">Maaf, surprise ini khusus untuk Nisa! 💖</div>
+            <button class="login-btn" onclick="checkAccess()">Buka disini 🎁 </button>
+            <div class="error-message" id="errorMessage">Maaf, ini khusus untuk Nisa! 💖</div>
         </div>
     </div>
 
@@ -505,6 +496,7 @@
                 <div class="cake-animation">🎂</div>
             </div>
 
+            <!-- PERBAIKAN: Photo gallery tanpa caption -->
             <div class="photo-gallery">
                 <div class="photo-frame">
                     <img src="photos/foto1.jpg" alt="Foto Kenangan 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -513,7 +505,6 @@
                         <strong>Foto Kenangan 1</strong><br>
                         <small>Momen Spesial Nisa</small>
                     </div>
-                    <div class="photo-caption">Momen Spesial Nisa</div>
                 </div>
                 
                 <div class="photo-frame">
@@ -523,7 +514,6 @@
                         <strong>Foto Kenangan 2</strong><br>
                         <small>Senyuman Terindah</small>
                     </div>
-                    <div class="photo-caption">Senyuman Terindah</div>
                 </div>
                 
                 <div class="photo-frame">
@@ -533,7 +523,6 @@
                         <strong>Foto Kenangan 3</strong><br>
                         <small>Kebersamaan Manis</small>
                     </div>
-                    <div class="photo-caption">Kebersamaan Manis</div>
                 </div>
             </div>
 
